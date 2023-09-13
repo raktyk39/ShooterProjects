@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Terain.unity
     guid: 778eb52bc1b78f84e9cd4e92c83b2bc8
+  - enabled: 1
+    path: Assets/Scenes/GameOver.unity
+    guid: 2c4a33b188c8ceb45b4b1b80ba5d42a2
   m_configObjects: {}

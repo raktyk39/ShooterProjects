@@ -37,15 +37,24 @@ public class GunVectore : MonoBehaviour
 
      public float NextTimeToFire = 0f;
 
+     public MeshRenderer meshRenderer;
+
 
       void Start ()
       {
         StartCoroutine(Reload());
+
+        meshRenderer = GetComponent<MeshRenderer>();
       }
 
 
 
     void Update() {
+
+
+    if ( !meshRenderer.enabled){
+      return;
+    }
 
       
       if (isRoading)

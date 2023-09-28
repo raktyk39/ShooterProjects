@@ -38,10 +38,16 @@ public class Gun : MonoBehaviour
 
      public float NextTimeToFire = 0f;
 
+     public MeshRenderer meshRenderer;
+
 
       void Start ()
       {
         StartCoroutine(Reload());
+
+        meshRenderer = GetComponent<MeshRenderer>();
+
+        cam = Camera.main;
       }
 
 
@@ -50,6 +56,10 @@ public class Gun : MonoBehaviour
 
     void Update() {
   
+      if ( !meshRenderer.enabled)
+        {
+          return;
+        }
       
       if (isRoading)
       {
@@ -103,7 +113,7 @@ public class Gun : MonoBehaviour
         {
 
              currentAmmo --;
-
+            Debug.Log("Мы стреляем") ;
           ShootEffect.Play();
           ShootAudio.Play();
           

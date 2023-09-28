@@ -9,15 +9,21 @@ public class RandomSpawnZombes : MonoBehaviour
 
     public GameObject YakuZombee;
 
+    public GameObject YakuBigZombe;
+
+    public GameObject [] YakuZombes ;
+
     public float spawnTime;
 
-    private float  minSpawnTime = 5f;
+    private float  minSpawnTime = 0f;
 
-    private float  maxSpawnTime = 15f;
+    private float  maxSpawnTime = 1f;
 
     public Vector3 SpawnPlace;
 
+   public int randomIndex;
 
+   public  GameObject selectedZombie;
 
 
     void Start()
@@ -25,8 +31,20 @@ public class RandomSpawnZombes : MonoBehaviour
       // Сделали путь к обьекту , перезаписываем как игровой обьект
         _waves = FindObjectOfType<Waves>();
       YakuZombee = Resources.Load("Prefabs/YakuZombee") as GameObject;
-       StartCoroutine("WaitTimeForSpawn");
+      YakuBigZombe = Resources.Load("Prefabs/BigYakuZombee") as GameObject;
+
+     YakuZombes = new GameObject[2];
+     YakuZombes[0] = Resources.Load<GameObject>("Prefabs/YakuZombee");
+     YakuZombes[1] = Resources.Load<GameObject>("Prefabs/BigYakuZombee");
+
+     StartCoroutine("WaitTimeForSpawn");
+
+    
     }
+
+
+
+
 
     IEnumerator WaitTimeForSpawn() {
 
@@ -35,8 +53,11 @@ public class RandomSpawnZombes : MonoBehaviour
 
     if(_waves.ZombieCount.Length < _waves.maxZombiesOnWave) {
 
-        SpawnPlace = new Vector3 (Random.Range(-218,218),1, Random.Range(-288,288) );           
-       Instantiate(YakuZombee.gameObject,SpawnPlace,Quaternion.identity);
+      randomIndex = Random.Range(0, YakuZombes.Length ); // Генерируем случайный индекс
+    selectedZombie = YakuZombes[randomIndex]; // Выбираем объект из массива по случайному индексу
+ 
+SpawnPlace = new Vector3(Random.Range(-218, 218), 1, Random.Range(-288, 288));
+ Instantiate(selectedZombie, SpawnPlace, Quaternion.identity);
        spawnTime = Random.Range(minSpawnTime,maxSpawnTime);
        yield return new WaitForSeconds(spawnTime);
 

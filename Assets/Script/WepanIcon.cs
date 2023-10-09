@@ -4,60 +4,51 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class WepanIcon : MonoBehaviour
-
 {
+    public Image imageGlock;
+    public Image imageP90;
+    public Image imageSmg;
 
-public Image [] images;
+    public List<Image> images = new List<Image>();
+    private int currentIndex = 0;
 
-public int WepanIconLenth ; 
-    
-    // Start is called before the first frame update
     void Start()
     {
-        images = gameObject.GetComponentsInChildren<Image>();
-
-        WepanIconLenth = transform.childCount;
-
-      //  transform.GetChild(0).GetComponent<Image>().color = new Color32(13,87,19,255);
+        images.Add(imageGlock);
+        images.Add(imageP90);
+        images.Add(imageSmg);
+        
+        UpdateIconDisplay();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        
-      if ( Input.GetKey(KeyCode.Alpha1)) {
-
-           transform.GetChild(0).GetComponent<Image>().color = new Color32(13,87,19,255);
-             
-           
-
-      }
-      
-
-      if ( Input.GetKey(KeyCode.Alpha2)) {
-
-           transform.GetChild(1).GetComponent<Image>().color = new Color32(13,87,19,255);
-
-      }
-
-
-      if ( Input.GetKey(KeyCode.Alpha3)) {
-
-           transform.GetChild(2).GetComponent<Image>().color = new Color32(13,87,19,255);
-
-      }
-
-
+        // Проверяем нажатие клавиш 1, 2 и 3
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            ChangeWeapon(0);
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            ChangeWeapon(1);
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            ChangeWeapon(2);
+        }
     }
 
+    void UpdateIconDisplay()
+    {
+        for (int i = 0; i < images.Count; i++)
+        {
+            images[i].color = (i == currentIndex) ? new Color32(13, 87, 19, 255) : new Color32(31, 180, 44, 255);
+        }
+    }
 
-    void ChoseWeponIcon () {
-
-
-for (int i = 0; i < WepanIconLenth;i++)
-
-  
-
-
+    public void ChangeWeapon(int newIndex)
+    {
+        currentIndex = newIndex;
+        UpdateIconDisplay();
     }
 }

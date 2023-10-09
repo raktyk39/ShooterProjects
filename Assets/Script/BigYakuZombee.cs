@@ -6,6 +6,8 @@ public class BigYakuZombee : MonoBehaviour
 {
     private GameObject Player;
 
+    public Waves _waves;
+
     public float ZombeSpeed = 0.2f;
 
     private Animator ZombeAnimator;
@@ -13,6 +15,8 @@ public class BigYakuZombee : MonoBehaviour
     private GameObject ammo;
 
     public int ZombiHealth = 300;
+
+    public int DamageforPlayer = 30;
 
     public List<Rigidbody> GetRigidbodies = new List<Rigidbody>();
 
@@ -22,17 +26,23 @@ public class BigYakuZombee : MonoBehaviour
     void Start()
     {
 
+        _waves = FindObjectOfType<Waves>();  
+     
         ammo = Resources.Load("Prefabs/AmmoP90") as GameObject;
 
        Player = GameObject.FindGameObjectWithTag("Player");
        
           ZombeAnimator = gameObject.GetComponent<Animator>();
 
-         ZombiHealth = 300;
          ZombeSpeed = 0.2f;
 
          RigidbodyisKinimaticOn();
          gameObject.GetComponent<CapsuleCollider>().enabled = true;
+
+
+          ZombiHealth = ZombiHealth + _waves.ZombiHealthAddingBig;
+
+          DamageforPlayer = DamageforPlayer + _waves.ZombiHealthAddingBig;
            
     }
 
@@ -155,6 +165,8 @@ public void TakeDamage (int damage)
    RigidbodyisKinimaticOff();
    gameObject.GetComponent<CapsuleCollider>().enabled = false;
  Instantiate(ammo.gameObject, gameObject.transform.position,Quaternion.identity);
+
+ _waves.ZombieKillOnWave ++;
 
 
 

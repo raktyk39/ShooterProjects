@@ -10,6 +10,11 @@ public class AmmoUI : MonoBehaviour
 {
 
     private Gun gun;
+    
+    GunP90 gunP90;
+
+    GunVectore gunVectore;
+
 
     private Waves waves_;
 
@@ -26,6 +31,10 @@ public class AmmoUI : MonoBehaviour
 
     void Start()
     {
+        gunP90 = FindObjectOfType<GunP90>();
+
+        gunVectore = FindObjectOfType<GunVectore>();
+
         gun = FindObjectOfType<Gun>();
           
        waves_ = FindObjectOfType<Waves>();
@@ -43,12 +52,15 @@ public class AmmoUI : MonoBehaviour
      void GunUI ()
         {
          
+            textAmmo[0].text = "CurentAmmo" + gun.currentAmmo;
 
-           textAmmo[0].text = "BagAmmo; " + gun.BagAmmo;
-           textAmmo[1].text = "CurentAmmo " + gun.currentAmmo;
+            textAmmo[1].text = "CurentAmmo" + gunP90.currentAmmo;
+
+            textAmmo[2].text = "CurentAmmo" + gunVectore.currentAmmo;
+           /*textAmmo[1].text = "BagAmmo; " + gun.BagAmmo;
            textAmmo[2].text = "MaxAmmo " + gun.maxAmmo;
            textAmmo[3].text = "Kill:" + waves_.ZombieKillOnWave;
-          
+          */
 
           
 

@@ -10,6 +10,9 @@ TagManager:
   - GunP90
   - Zombie
   - PanelSatings
+  - IconGlock
+  - IconP90
+  - IconSmgVector
   layers:
   - Default
   - TransparentFX

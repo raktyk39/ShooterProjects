@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 
 public class Waves : MonoBehaviour
 {
-    public ZombeMove zombieMove; 
 
      public GameObject [] ZombieCount;
 
@@ -21,6 +21,11 @@ public class Waves : MonoBehaviour
      public int ZombiHealthAdding;
 
      public int DamageforPlayerAdding;
+
+
+      public int ZombiHealthAddingBig;
+
+     public int DamageforPlayerAddingBig;
      
   
            
@@ -36,6 +41,14 @@ public class Waves : MonoBehaviour
  
     void Update()
     {
+
+         if (ZombieKillOnWave == 13) {
+ 
+           SceneManager.LoadScene("Win");
+
+        }
+
+        
         if ( ZombieKillOnWave >= maxZombiesOnWave)
         {
  
@@ -43,7 +56,13 @@ public class Waves : MonoBehaviour
 
         }
 
+        
         CountZombiesOnWave();
+
+    
+      
+
+       
     }
 
 
@@ -57,11 +76,20 @@ public class Waves : MonoBehaviour
 
     void ChangeWave ()
     {   
-        WavesCaunt ++ ;
-        DamageforPlayerAdding = DamageforPlayerAdding + 50;
-        ZombiHealthAdding = ZombiHealthAdding + 50;
         maxZombiesOnWave ++;
         ZombieKillOnWave = 0;
+
+        WavesCaunt ++ ;
+        
+        DamageforPlayerAdding = DamageforPlayerAdding + 10;
+        ZombiHealthAdding = ZombiHealthAdding + 30;
+
+
+       ZombiHealthAddingBig = ZombiHealthAddingBig + 40;
+        DamageforPlayerAddingBig =  DamageforPlayerAddingBig + 15;
+
+
+        
     
 
     for(int countZombie = 0; countZombie < ZombieCount.Length; countZombie++) {

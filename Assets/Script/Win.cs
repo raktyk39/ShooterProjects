@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class WinIntarface : MonoBehaviour
+public class Win : MonoBehaviour
 {
 
     

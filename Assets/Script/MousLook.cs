@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class MousLook : MonoBehaviour
 {
+
+
+    
     // Start is called before the first frame update
     public Vector2 turn;
 
@@ -34,8 +37,8 @@ public class MousLook : MonoBehaviour
 
     void Start () {
         // Заприщвем курсору выходить за рамки окна игры
-        Cursor.lockState = CursorLockMode.Locked;
-
+        
+        
         PlayerAnimator = player.GetComponent<Animator>();
     }
 
@@ -45,6 +48,9 @@ public class MousLook : MonoBehaviour
 
     void Update()
     {
+
+      
+
         //Получаем кардинаты мышки
         turn.x += Input.GetAxis("Mouse X") * sensitivity;
         turn.y += Input.GetAxis("Mouse Y") * sensitivity;
@@ -145,4 +151,9 @@ public class MousLook : MonoBehaviour
          
 
     }
+
+
+   
+
 }
+

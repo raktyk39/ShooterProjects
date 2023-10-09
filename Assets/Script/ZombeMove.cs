@@ -36,14 +36,17 @@ public class ZombeMove : MonoBehaviour
 
          RigidbodyisKinimaticOn();
          gameObject.GetComponent<CapsuleCollider>().enabled = true;
+
+         DamageforPlayer = DamageforPlayer + _waves.DamageforPlayerAdding;
+
+         ZombiHealth = ZombiHealth + _waves.ZombiHealthAdding;
            
     }
 
     // Update is called once per frame
     void Update()
     {
-      DamageforPlayer = DamageforPlayer + _waves.DamageforPlayerAdding;
-      ZombiHealth = ZombiHealth + _waves.ZombiHealthAdding;
+      
         ZombeController();
 
     }
@@ -140,14 +143,7 @@ void ZombeController ()
              gameObject.transform.position = Vector3.MoveTowards(gameObject.transform.position,Player.transform.position, ZombeSpeed * Time.deltaTime);
       }
    }
-
-   
-
  }
-
-
-
-
 
 
 
@@ -172,4 +168,8 @@ _waves.ZombieKillOnWave++;
 
 }
  }
-   }
+
+
+
+
+}

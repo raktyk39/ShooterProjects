@@ -21,20 +21,21 @@ public class WepanPlace : MonoBehaviour
     {
        
      meshRenderer = GetComponent<MeshRenderer>();
-     WeaponBagLength = transform.childCount;
+
+     WeaponBagLength = transform.childCount; // считает количество дочерних элементов
      WeaponBag = new GameObject[WeaponBagLength];
 
       
-     for ( int i = 0; i < WeaponBagLength; i++)
+     for ( int i = 0; i < WeaponBagLength; i++) // ДАный цикл сделан для того чотбы WeaponBag хранил в себе дочернии обьекты , i это число с помощью которого он указывает сколько обьектов у нас вообще есть и то что сколько у нас есть обьектов то тому и равен WeaponBag
      {
 
-      WeaponBag[i] = transform.GetChild(i).gameObject;
+      WeaponBag[i] = transform.GetChild(i).gameObject; // Масив в себе хранит игровые обьекты
        
      }
 
      CurrentWeapon = WeaponBag[0];
             
-        //ChooseWeapon();
+        ChooseWeapon();
     }
 
     // Update is called once per frame

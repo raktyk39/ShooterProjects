@@ -25,11 +25,15 @@ public class PlayerHealth : MonoBehaviour
     }
 
 
+
+
     public void TakePlayerDamage (int playerDamage)
 {
 
          playerHealth = playerHealth- playerDamage;
 }
+
+
 
  void Death () 
  {

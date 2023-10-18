@@ -21,6 +21,8 @@ public class MenuControler : MonoBehaviour
         BG_MenuAudio = GetComponent<AudioSource>();
 
         panelSettings.SetActive(false);
+
+       
         
     }
 
@@ -36,6 +38,7 @@ public class MenuControler : MonoBehaviour
   public void StartGame () {
 
  SceneManager.LoadScene("Parking");
+
 
   }
 

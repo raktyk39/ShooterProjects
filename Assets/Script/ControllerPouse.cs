@@ -24,7 +24,21 @@ public class ControllerPouse : MonoBehaviour
 public void PousGame () {
 
 
+
+
+if (intarfacePauce.activeSelf == true) {
+
 Time.timeScale = 0;
+
+
+}
+
+else {
+
+Time.timeScale = 1;
+
+}
+
 }
 
 public void IntarfaceOnClick() {

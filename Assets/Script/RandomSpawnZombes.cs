@@ -9,6 +9,8 @@ public class RandomSpawnZombes : MonoBehaviour
 
     public GameObject YakuZombee;
 
+    public GameObject YakuZombeeSpeed;
+
     public GameObject YakuBigZombe;
 
     public GameObject [] YakuZombes ;
@@ -30,12 +32,14 @@ public class RandomSpawnZombes : MonoBehaviour
     {
       // Сделали путь к обьекту , перезаписываем как игровой обьект
         _waves = FindObjectOfType<Waves>();
+      YakuZombeeSpeed = Resources.Load("Prefabs/YakuZombeeSpeed") as GameObject;
       YakuZombee = Resources.Load("Prefabs/YakuZombee") as GameObject;
       YakuBigZombe = Resources.Load("Prefabs/BigYakuZombee") as GameObject;
 
-     YakuZombes = new GameObject[2];
+     YakuZombes = new GameObject[3];
      YakuZombes[0] = Resources.Load<GameObject>("Prefabs/YakuZombee");
      YakuZombes[1] = Resources.Load<GameObject>("Prefabs/BigYakuZombee");
+     YakuZombes[2] = Resources.Load<GameObject>("Prefabs/YakuZombeeSpeed");
 
      StartCoroutine("WaitTimeForSpawn");
 

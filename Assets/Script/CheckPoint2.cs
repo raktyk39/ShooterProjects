@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEditor.SceneManagement;
+using UnityEngine.SceneManagement;
 
 public class CheckPoint2 : MonoBehaviour
 {
@@ -20,7 +20,7 @@ public class CheckPoint2 : MonoBehaviour
     
         if ( other.gameObject == LVL2)
          {
-            EditorSceneManager.LoadScene("Terain"); // 1
+           SceneManager.LoadScene("Terain"); // 1
         }
 
 

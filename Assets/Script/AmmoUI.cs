@@ -54,9 +54,15 @@ public class AmmoUI : MonoBehaviour
          
             textAmmo[0].text = "CurentAmmo" + gun.currentAmmo;
 
-            textAmmo[1].text = "CurentAmmo" + gunP90.currentAmmo;
+            textAmmo[1].text = "BagAmmo" + gun.BagAmmo;
 
-            textAmmo[2].text = "CurentAmmo" + gunVectore.currentAmmo;
+            textAmmo[2].text = "CurentAmmo" + gunP90.currentAmmo;
+
+            textAmmo[3].text = "BagAmmo" + gunP90.BagAmmo;
+
+            textAmmo[4].text = "CurentAmmo" + gunVectore.currentAmmo;
+
+            textAmmo[5].text = "BagAmmo" + gunVectore.BagAmmo;
            /*textAmmo[1].text = "BagAmmo; " + gun.BagAmmo;
            textAmmo[2].text = "MaxAmmo " + gun.maxAmmo;
            textAmmo[3].text = "Kill:" + waves_.ZombieKillOnWave;

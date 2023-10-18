@@ -130,6 +130,7 @@ public class Gun : MonoBehaviour
                Target target  = hit.transform.GetComponent<Target>();
                ZombeMove zombeMove = hit.transform.GetComponent<ZombeMove>();
                BigYakuZombee bigzombee = hit.transform.GetComponent<BigYakuZombee>();
+               ZombeMoveSpeed zombeMoveSpeed = hit.transform.GetComponent<ZombeMoveSpeed>();
 
               if( target !=null)
               {
@@ -148,6 +149,12 @@ public class Gun : MonoBehaviour
                   if ( bigzombee != null)
                   {
                     bigzombee.TakeDamage(Zombedamage);
+                  }
+
+                  if ( zombeMoveSpeed != null) {
+
+                     zombeMoveSpeed.TakeDamage(Zombedamage);
+
                   }
                 ParticleSystem CreatHit = Instantiate(HitEffect,hit.point,Quaternion.LookRotation(hit.normal));
                 Destroy (CreatHit.gameObject,1f);

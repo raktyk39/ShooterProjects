@@ -6,13 +6,12 @@ public class AmmoSMG : MonoBehaviour
 {
 
     public GameObject smg;
-    // Start is called before the first frame update
+
     void Start()
     {
        smg = GameObject.FindGameObjectWithTag("GunSmg");
     }
 
-   
      void OnTriggerEnter(Collider other) {
         
        if ( other.gameObject.tag == "Player" )
@@ -20,9 +19,6 @@ public class AmmoSMG : MonoBehaviour
 
          smg.GetComponent<GunVectore>().BagAmmo =   smg.GetComponent<GunVectore>().BagAmmo + 10 ;
          Destroy(gameObject);
-
        }
-
-    }
-    
+    } 
 }

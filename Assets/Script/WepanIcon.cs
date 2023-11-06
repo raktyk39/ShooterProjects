@@ -8,7 +8,6 @@ public class WepanIcon : MonoBehaviour
     public Image imageGlock;
     public Image imageP90;
     public Image imageSmg;
-
     public List<Image> images = new List<Image>();
     private int currentIndex = 0;
 
@@ -23,7 +22,6 @@ public class WepanIcon : MonoBehaviour
 
     void Update()
     {
-        // Проверяем нажатие клавиш 1, 2 и 3
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
             ChangeWeapon(0);

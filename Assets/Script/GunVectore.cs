@@ -4,117 +4,89 @@ using UnityEngine;
 
 public class GunVectore : MonoBehaviour
 {
-    // Start is called before the first frame update
+   
       public Camera cam;
 
-    public float range = 50f ;
+      public float range = 50f ;
 
-    public float MarkDamage = 10f;
+      public float MarkDamage = 10f;
 
-    public int BagAmmo = 0;
+      public int BagAmmo = 0;
 
-    public ParticleSystem ShootEffect;
+      public ParticleSystem ShootEffect;
 
-    public int Zombedamage = 50;
-     
-    public ParticleSystem HitEffect;
-
-    public AudioSource ShootAudio;
-
-  // Перемены для очереди стрельбы
-    public float reloatTime = 5f;
-
-    private bool isRoading = false;
-
-    public int currentAmmo;
-
-    public int maxAmmo = 10; 
-
-
-    public float ImpactForce = 300f;
-
-    public float FireRate = 1f;
-
-     public float NextTimeToFire = 0f;
-
-     public MeshRenderer meshRenderer;
-
-
-      void Start ()
-      {
-        StartCoroutine(Reload());
-
-        meshRenderer = GetComponent<MeshRenderer>();
-      }
-
-
-
-    void Update() {
-
-
-    if ( !meshRenderer.enabled){
-      return;
-    }
-
+      public int Zombedamage = 50;
       
-      if (isRoading)
-      {
-        return;
-      }
+      public ParticleSystem HitEffect;
 
+      public AudioSource ShootAudio;
 
-     if( currentAmmo <= 0 )
-     {
-        StartCoroutine(Reload());
-        return;
-     }
+      public float reloatTime = 5f;
 
-       // print (Time.time);
-      if (Input.GetMouseButtonDown(0) && Time.time >= NextTimeToFire)
-       {
-         
-         Shoot();
-      // наша нынешняя время + 1 секунда
-      NextTimeToFire = Time.time + 0.2f/FireRate; 
+      private bool isRoading = false;
 
-       }
+      public int currentAmmo;
 
-         }
+      public int maxAmmo = 10; 
 
+      public float ImpactForce = 300f;
 
- IEnumerator Reload ()
-     {
+      public float FireRate = 1f;
 
-           
-      if ( BagAmmo > 0)
-      {
-        isRoading = true;
+      public float NextTimeToFire = 0f;
 
-      Debug.Log("Reloading...");
-       yield return new WaitForSeconds(reloatTime);
-       currentAmmo = maxAmmo;
-       BagAmmo = BagAmmo - maxAmmo;
+      public MeshRenderer meshRenderer;
 
-       isRoading = false;
-     }
+        void Start ()
+        {
+          StartCoroutine(Reload());
 
-      
-     }
+          meshRenderer = GetComponent<MeshRenderer>();
+        }
+
+        void Update() 
+        {
+            if ( !meshRenderer.enabled)
+            {
+                return;
+            }
+              if (isRoading)
+              {
+                  return;
+              }
+              if( currentAmmo <= 0 )
+              {
+                  StartCoroutine(Reload());
+                  return;
+              }
+              if (Input.GetMouseButtonDown(0) && Time.time >= NextTimeToFire)
+              {
+                Shoot();
+              
+              NextTimeToFire = Time.time + 0.2f/FireRate; // наша нынешняя время + 1 секунда
+              }
+        }
+
+        IEnumerator Reload ()
+        { 
+            if ( BagAmmo > 0)
+            {
+              isRoading = true;
+              Debug.Log("Reloading...");
+              yield return new WaitForSeconds(reloatTime);
+              currentAmmo = maxAmmo;
+              BagAmmo = BagAmmo - maxAmmo;
+              isRoading = false;
+          }
+        }
         
-
-
-        
-
         void Shoot ()
         {
-
              currentAmmo --;
-
           ShootEffect.Play();
           ShootAudio.Play();
-          
-             // RaycastHit переменая которая сохраняет название обьектов которые столкнулись с нашем лучом
-              RaycastHit hit;
+
+              RaycastHit hit;   // RaycastHit переменая которая сохраняет название обьектов которые столкнулись с нашем лучом
             
                           
             if (Physics.Raycast(cam.transform.position,cam.transform.forward,out hit,range))

@@ -6,31 +6,11 @@ using UnityEngine.SceneManagement;
 
 public class Win : MonoBehaviour
 {
-
-    
-    // Start is called before the first frame update
-    void Start()
-    {
-     
-    }
-
-    
-
     void OnCollisionEnter ( Collision other )
     {
-       
-    
-      if ( other.gameObject.tag == "Player")
-      {
-
-           SceneManager.LoadScene("Win");
-
-      }
-
-
-    }
-
-
-     
-     
+        if ( other.gameObject.tag == "Player")
+        {
+            SceneManager.LoadScene("Win");
+        }
+    } 
 }

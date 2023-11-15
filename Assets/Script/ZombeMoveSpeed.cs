@@ -4,23 +4,23 @@ using UnityEngine;
 
 public class ZombeMoveSpeed : MonoBehaviour
 {
-    public Waves _waves;
+      public Waves _waves;
 
-    private GameObject Player;
+      private GameObject Player;
 
-    public float ZombeSpeed = 2f;
+      public float ZombeSpeed = 2f;
 
-    private Animator ZombeAnimator;
+      private Animator ZombeAnimator;
 
-    public int DamageforPlayer = 10;
+      public int DamageforPlayer = 10;
 
-    private GameObject ammo;
+      private GameObject ammo;
 
-    public int ZombiHealth = 100;
+      public int ZombiHealth = 100;
 
-    public List<Rigidbody> GetRigidbodies = new List<Rigidbody>();
+      public List<Rigidbody> GetRigidbodies = new List<Rigidbody>();
 
-    private AnimatorStateInfo ZombiStateInfo;
+      private AnimatorStateInfo ZombiStateInfo;
 
       void Start()
       {
@@ -61,13 +61,9 @@ public class ZombeMoveSpeed : MonoBehaviour
       {
          if ( other.gameObject.tag == "Player")
          {
-                ZombeAnimator.SetBool("Atack", false);
+            ZombeAnimator.SetBool("Atack", false);
          }
       }
-
-
-
-
 
       void RigidbodyisKinimaticOn ()
       {

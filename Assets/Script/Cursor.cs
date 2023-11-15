@@ -6,11 +6,6 @@ public class invert : MonoBehaviour
 {
     bool curcorLocked = false;
 
-    void Start()
-    {
-
-    }
-
     void Update()
     {
         CursorController();
@@ -18,11 +13,11 @@ public class invert : MonoBehaviour
 
     public void CursorController()
     {
-      
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             curcorLocked = !curcorLocked;
         }
+        
         print(curcorLocked);
 
         if(curcorLocked)

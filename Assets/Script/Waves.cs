@@ -7,66 +7,59 @@ using UnityEngine.SceneManagement;
 
 public class Waves : MonoBehaviour
 {
-     public GameObject [] ZombieCount;
-
-     public int maxZombiesOnWave = 10; 
-
-     public int ZombieKillOnWave;
-
-     public ZombeMove zombmovi ; 
-
-     public int WavesCaunt ;
-
-     public int ZombiHealthAdding;
-
-     public int DamageforPlayerAdding;
-
-      public int ZombiHealthAddingBig;
-
-     public int DamageforPlayerAddingBig;
+  public GameObject [] ZombieCount;
+  public int maxZombiesOnWave = 10; 
+  public int ZombieKillOnWave;
+  public ZombeMove zombmovi ; 
+  public int WavesCaunt ;
+  public int ZombiHealthAdding;
+  public int DamageforPlayerAdding;
+  public int ZombiHealthAddingBig;
+  public int DamageforPlayerAddingBig;
      
-      void Start ()
-      {
-        zombmovi = FindObjectOfType<ZombeMove>();
-      }
+  void Start ()
+  {
+    zombmovi = FindObjectOfType<ZombeMove>();
+  }
  
-      void Update()
+  void Update()
+  {
+    if (ZombieKillOnWave == 13) 
+    {
+      SceneManager.LoadScene("Win");
+    }
+      if ( ZombieKillOnWave >= maxZombiesOnWave)
       {
-        if (ZombieKillOnWave == 13) 
-        {
-          SceneManager.LoadScene("Win");
-        }
-          if ( ZombieKillOnWave >= maxZombiesOnWave)
-          {
-            ChangeWave(); 
-          }
+        ChangeWave(); 
+      }
+
         CountZombiesOnWave();
-      }
+  }
 
-      void CountZombiesOnWave()
-      {
+  void CountZombiesOnWave()
+  {
         ZombieCount = GameObject.FindGameObjectsWithTag("Zombie");
-      }
+  }
 
-      void ChangeWave ()
-      {   
-              maxZombiesOnWave ++;
+  void ChangeWave ()
+  {   
+        maxZombiesOnWave ++;
 
-              ZombieKillOnWave = 0;
+        ZombieKillOnWave = 0;
 
-              WavesCaunt ++;
+        WavesCaunt ++;
 
-              DamageforPlayerAdding = DamageforPlayerAdding + 10;
+        DamageforPlayerAdding = DamageforPlayerAdding + 10;
 
-              ZombiHealthAdding = ZombiHealthAdding + 30;
+        ZombiHealthAdding = ZombiHealthAdding + 30;
 
-              ZombiHealthAddingBig = ZombiHealthAddingBig + 40;
+        ZombiHealthAddingBig = ZombiHealthAddingBig + 40;
 
-              DamageforPlayerAddingBig =  DamageforPlayerAddingBig + 15;
+        DamageforPlayerAddingBig =  DamageforPlayerAddingBig + 15;
           
-          for(int countZombie = 0; countZombie < ZombieCount.Length; countZombie++) 
-          {
-              Destroy(ZombieCount[countZombie].gameObject);
-          }
-      }
+    for(int countZombie = 0; countZombie < ZombieCount.Length; countZombie++) 
+    {
+        Destroy(ZombieCount[countZombie].gameObject);
+    }
+  }
 }

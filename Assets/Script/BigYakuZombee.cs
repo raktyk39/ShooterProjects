@@ -4,175 +4,112 @@ using UnityEngine;
 
 public class BigYakuZombee : MonoBehaviour
 {
-    private GameObject Player;
+   private GameObject Player;
+   public Waves _waves;
+   public float ZombeSpeed = 0.2f;
+   private Animator ZombeAnimator;
+   private GameObject ammo;
+   public int ZombiHealth = 300;
+   public int DamageforPlayer = 30;
+   public List<Rigidbody> GetRigidbodies = new List<Rigidbody>();
+   private AnimatorStateInfo ZombiStateInfo;
 
-    public Waves _waves;
-
-    public float ZombeSpeed = 0.2f;
-
-    private Animator ZombeAnimator;
-
-    private GameObject ammo;
-
-    public int ZombiHealth = 300;
-
-    public int DamageforPlayer = 30;
-
-    public List<Rigidbody> GetRigidbodies = new List<Rigidbody>();
-
-    private AnimatorStateInfo ZombiStateInfo;
-
-
-    void Start()
-    {
-
-        _waves = FindObjectOfType<Waves>();  
+   void Start()
+   {
+      _waves = FindObjectOfType<Waves>();  
      
-        ammo = Resources.Load("Prefabs/AmmoP90") as GameObject;
+      ammo = Resources.Load("Prefabs/AmmoP90") as GameObject;
 
-       Player = GameObject.FindGameObjectWithTag("Player");
+      Player = GameObject.FindGameObjectWithTag("Player");
        
-          ZombeAnimator = gameObject.GetComponent<Animator>();
+      ZombeAnimator = gameObject.GetComponent<Animator>();
 
-         ZombeSpeed = 0.2f;
+      ZombeSpeed = 0.2f;
 
-         RigidbodyisKinimaticOn();
-         gameObject.GetComponent<CapsuleCollider>().enabled = true;
+      RigidbodyisKinimaticOn();
 
+      gameObject.GetComponent<CapsuleCollider>().enabled = true;
 
-          ZombiHealth = ZombiHealth + _waves.ZombiHealthAddingBig;
+      ZombiHealth = ZombiHealth + _waves.ZombiHealthAddingBig;
+      DamageforPlayer = DamageforPlayer + _waves.ZombiHealthAddingBig;    
+   }
 
-          DamageforPlayer = DamageforPlayer + _waves.ZombiHealthAddingBig;
-           
-    }
-
-    // Update is called once per frame
     void Update()
-    {
+   {
         ZombeController();
+   }
 
-    }
-
-
-
-
-     void OnCollisionEnter(Collision other) {
-            
+   void OnCollisionEnter(Collision other) 
+   {      
       if ( other.gameObject.tag == "Player")
       {
         ZombeAnimator.SetBool("Atack", true);
-
         other.gameObject.GetComponent<PlayerHealth>().TakePlayerDamage(30);
       }
-
    }
 
-
-
-
-   void OnCollisionExit(Collision other) {
-            
+   void OnCollisionExit(Collision other) 
+   {       
       if ( other.gameObject.tag == "Player")
       {
         ZombeAnimator.SetBool("Atack", false);
       }
-
    }
 
-
-
-
-
-void RigidbodyisKinimaticOn ()
-{
-   ZombeAnimator.enabled = true;
-
-for ( int countHips =0; countHips < GetRigidbodies.Count; countHips++)
-{
-
-GetRigidbodies [countHips].isKinematic = true;
-
-}
-
-  }
-
-
-
-
-void RigidbodyisKinimaticOff ()
-
-{
-
-   ZombeAnimator.enabled = false;
-
-
-for ( int countHips =0; countHips < GetRigidbodies.Count; countHips++)
-{
-
-GetRigidbodies [countHips].isKinematic = false;
-
-}
-
- 
-
-
-}
-
-
-
-
-
-
-void ZombeController ()
-{
-    ZombiStateInfo = ZombeAnimator.GetCurrentAnimatorStateInfo(0);
-
-   if ( ZombiHealth > 0)
+   void RigidbodyisKinimaticOn ()
    {
-   
-      if ( ZombiStateInfo.IsName("Zombie Attack") || ZombiStateInfo.IsName("Zombie Reaction Hit"))
-
+      ZombeAnimator.enabled = true;
+      
+      for ( int countHips =0; countHips < GetRigidbodies.Count; countHips++)
       {
-
-         ZombeSpeed = 0f;
-      }
-      else {
-         ZombeSpeed = 0.2f;
-             gameObject.transform.LookAt(Player.transform.position);
-             gameObject.transform.position = Vector3.MoveTowards(gameObject.transform.position,Player.transform.position, ZombeSpeed * Time.deltaTime);
+         GetRigidbodies [countHips].isKinematic = true;
       }
    }
 
-   
+   void RigidbodyisKinimaticOff ()
+   {
+      ZombeAnimator.enabled = false;
 
- }
+      for ( int countHips =0; countHips < GetRigidbodies.Count; countHips++)
+      {
+         GetRigidbodies [countHips].isKinematic = false;
+      }
+   }
 
+   void ZombeController ()
+   {
+      ZombiStateInfo = ZombeAnimator.GetCurrentAnimatorStateInfo(0);
 
+      if ( ZombiHealth > 0)
+      {
+         if ( ZombiStateInfo.IsName("Zombie Attack") || ZombiStateInfo.IsName("Zombie Reaction Hit"))
+         {
+            ZombeSpeed = 0f;
+         }
+         else 
+         {
+            ZombeSpeed = 0.2f;
+            gameObject.transform.LookAt(Player.transform.position);
+            gameObject.transform.position = Vector3.MoveTowards(gameObject.transform.position,Player.transform.position, ZombeSpeed * Time.deltaTime);
+         }
+      }
+   }
 
+   public void TakeDamage (int damage)
+   {
 
+      ZombiHealth = ZombiHealth - damage;
 
+      ZombeAnimator.SetTrigger("Hit");
 
+      if ( ZombiHealth <= 0 )
+      {
+         RigidbodyisKinimaticOff();
 
-public void TakeDamage (int damage)
-{
+         gameObject.GetComponent<CapsuleCollider>().enabled = false;
+         Instantiate(ammo.gameObject, gameObject.transform.position,Quaternion.identity);
 
-   ZombiHealth = ZombiHealth - damage;
-
-   ZombeAnimator.SetTrigger("Hit");
-
-   if ( ZombiHealth <= 0 )
-{
-   RigidbodyisKinimaticOff();
-   gameObject.GetComponent<CapsuleCollider>().enabled = false;
- Instantiate(ammo.gameObject, gameObject.transform.position,Quaternion.identity);
-
- _waves.ZombieKillOnWave ++;
-
-
-
-
-
-
+         _waves.ZombieKillOnWave ++;
+      }
+   }
 }
- }
-   }

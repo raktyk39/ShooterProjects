@@ -4,23 +4,23 @@ using UnityEngine;
 
 public class MeshRender : MonoBehaviour
 {
-        public MeshRenderer meshRenderer;
+    public MeshRenderer meshRenderer;
 
-        void Start()
-        {
-            meshRenderer = GetComponent<MeshRenderer>();
-        }
+    void Start()
+    {
+        meshRenderer = GetComponent<MeshRenderer>();
+    }
 
-        void CheckMeshRenderer()
+    void CheckMeshRenderer()
+    {
+        if (meshRenderer.enabled == true)
         {
-            if (meshRenderer.enabled == true)
-            {
-                Debug.Log("MeshRender true");
-            }
+            Debug.Log("MeshRender true");
         }
+    }
 
-        void Update()
-        {
-            CheckMeshRenderer();
-        }
+    void Update()
+    {
+        CheckMeshRenderer();
+    }
 }

@@ -5,18 +5,19 @@ using UnityEngine.UI;
 
 public class MainMenuManager : MonoBehaviour
 {
-      public GameObject butoncContinue;
+   public GameObject butoncContinue;
 
-      void Start()
+   void Start()
+   {
+      if ( PlayerPrefs.GetInt("beSave") == 1) 
       {
-         if ( PlayerPrefs.GetInt("beSave") == 1) 
-         {
-            butoncContinue.SetActive(true);
-         }
-         else 
-         {
-                  butoncContinue.SetActive(false);
-         }
-            print( PlayerPrefs.GetInt("beSave"));
+         butoncContinue.SetActive(true);
       }
+      else 
+      {
+         butoncContinue.SetActive(false);
+      }
+      
+         print( PlayerPrefs.GetInt("beSave"));
+   }
 }

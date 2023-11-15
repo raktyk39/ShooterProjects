@@ -6,7 +6,6 @@ public class AmmoBox : MonoBehaviour
 {
     public GameObject gun;
 
-
     void Start()
     {
         gun = GameObject.FindGameObjectWithTag("Gun");

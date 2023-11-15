@@ -58,7 +58,6 @@ public class ZombeMove : MonoBehaviour
 
       void OnCollisionExit(Collision other)  
       {
-            
          if ( other.gameObject.tag == "Player")
          {
                 ZombeAnimator.SetBool("Atack", false);
@@ -67,7 +66,7 @@ public class ZombeMove : MonoBehaviour
 
       void RigidbodyisKinimaticOn ()
       {
-                  ZombeAnimator.enabled = true;
+            ZombeAnimator.enabled = true;
 
             for ( int countHips =0; countHips < GetRigidbodies.Count; countHips++)
             {
@@ -77,7 +76,7 @@ public class ZombeMove : MonoBehaviour
 
       void RigidbodyisKinimaticOff ()
       {
-                  ZombeAnimator.enabled = false;
+            ZombeAnimator.enabled = false;
 
             for ( int countHips =0; countHips < GetRigidbodies.Count; countHips++)
             {
@@ -87,7 +86,7 @@ public class ZombeMove : MonoBehaviour
 
       void ZombeController ()
       {
-                  ZombiStateInfo = ZombeAnimator.GetCurrentAnimatorStateInfo(0);
+            ZombiStateInfo = ZombeAnimator.GetCurrentAnimatorStateInfo(0);
 
          if ( ZombiHealth > 0)
             {

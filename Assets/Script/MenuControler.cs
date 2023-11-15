@@ -5,47 +5,46 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 public class MenuControler : MonoBehaviour
 {
-        public GameObject panelSettings;
+    public GameObject panelSettings;
 
-        public Slider vilumeSlider;
+    public Slider vilumeSlider;
 
-        public AudioSource BG_MenuAudio;
+    public AudioSource BG_MenuAudio;
       
-        void Start()
-        {
-            panelSettings = GameObject.FindGameObjectWithTag("PanelSatings");
+    void Start()
+    {
+        panelSettings = GameObject.FindGameObjectWithTag("PanelSatings");
 
-            vilumeSlider = GetComponentInChildren<Slider>();
+        vilumeSlider = GetComponentInChildren<Slider>();
+        BG_MenuAudio = GetComponent<AudioSource>();
 
-            BG_MenuAudio = GetComponent<AudioSource>();
+        panelSettings.SetActive(false);
+    }
 
-            panelSettings.SetActive(false);
-        }
-
-        void Update()
-        {
-            BG_MenuAudio.volume = vilumeSlider.value;
-        }
+    void Update()
+    {
+        BG_MenuAudio.volume = vilumeSlider.value;
+    }
         
-        public void StartGame ()
-        {
-            SceneManager.LoadScene("Parking");
-        }
+    public void StartGame ()
+    {
+        SceneManager.LoadScene("Parking");
+    }
 
-        public void ExitGame () 
-        {
-            Application.Quit();
-        }
+    public void ExitGame () 
+    {
+        Application.Quit();
+    }
 
-        public void Settings () 
+    public void Settings () 
+    {
+        if (panelSettings.activeInHierarchy == false )
         {
-            if (panelSettings.activeInHierarchy == false )
-            {
-                 panelSettings.SetActive(true);
-            }
-            else
-            {
-                panelSettings.SetActive(false );
-            }
+            panelSettings.SetActive(true);
         }
+        else
+        {
+            panelSettings.SetActive(false );
+        }
+    }
 }

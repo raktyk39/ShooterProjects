@@ -11,7 +11,6 @@ public class KillUI : MonoBehaviour
     void Start()
     {
         _waves = FindObjectOfType<Waves>();
-
         textOfKills = GetComponentsInChildren<Text>();
     }
 

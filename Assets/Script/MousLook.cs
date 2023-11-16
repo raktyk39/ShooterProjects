@@ -6,7 +6,7 @@ public class MousLook : MonoBehaviour
 {
     public Vector2 turn;
 
-    public float sensitivity = 0.5f;
+    public float ssensitivity = 0.5f;
 
     public float horizontalMove;
         

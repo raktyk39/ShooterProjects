@@ -65,7 +65,7 @@ public class GunP90 : MonoBehaviour
           BagAmmo = BagAmmo - maxAmmo;
 
           isRoading = false;
-      }
+        }
     }
 
     void Shoot ()
@@ -108,6 +108,6 @@ public class GunP90 : MonoBehaviour
 
                 ParticleSystem CreatHit = Instantiate(HitEffect,hit.point,Quaternion.LookRotation(hit.normal));
                 Destroy (CreatHit.gameObject,1f);
-          }
+        }
     }
 }

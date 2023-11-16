@@ -6,9 +6,7 @@ using UnityEngine.SceneManagement;
 public class MenuControler : MonoBehaviour
 {
     public GameObject panelSettings;
-
     public Slider vilumeSlider;
-
     public AudioSource BG_MenuAudio;
       
     void Start()

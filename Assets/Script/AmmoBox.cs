@@ -13,7 +13,6 @@ public class AmmoBox : MonoBehaviour
 
      void OnTriggerEnter(Collider other) 
      {
-        
        if ( other.gameObject.tag == "Player")
        {  
            gun.GetComponent<Gun>().BagAmmo =  gun.GetComponent<Gun>().BagAmmo + 10;

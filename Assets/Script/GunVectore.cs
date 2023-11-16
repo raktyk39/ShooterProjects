@@ -42,11 +42,11 @@ public class GunVectore : MonoBehaviour
             StartCoroutine(Reload());
             return;
           }
-          if (Input.GetMouseButtonDown(0) && Time.time >= NextTimeToFire)
+              if (Input.GetMouseButtonDown(0) && Time.time >= NextTimeToFire)
               {
                 Shoot();
-              
-              NextTimeToFire = Time.time + 0.2f/FireRate; // наша нынешняя время + 1 секунда
+                
+                NextTimeToFire = Time.time + 0.2f/FireRate; // наша нынешняя время + 1 секунда
               }
   }
 

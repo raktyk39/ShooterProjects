@@ -18,16 +18,16 @@ public class GunP90 : MonoBehaviour
     public int maxAmmo = 50; 
     public float ImpactForce = 300f;
     public float FireRate = 1f;
-     public float NextTimeToFire = 0f;
-     public MeshRenderer meshRenderer ;
+    public float NextTimeToFire = 0f;
+    public MeshRenderer meshRenderer ;
 
-    void Start ()
+    private void Start ()
     {
       StartCoroutine(Reload());
       meshRenderer = GetComponent<MeshRenderer>();
     }
 
-    void Update() 
+    private void Update() 
     {
       if ( !meshRenderer.enabled)
       {
@@ -53,7 +53,7 @@ public class GunP90 : MonoBehaviour
 
     }
 
-    IEnumerator Reload ()
+    private IEnumerator Reload ()
     {  
         if ( BagAmmo > 0)
         {
@@ -68,7 +68,7 @@ public class GunP90 : MonoBehaviour
         }
     }
 
-    void Shoot ()
+    private void Shoot ()
     {
           currentAmmo --;
           ShootEffect.Play();

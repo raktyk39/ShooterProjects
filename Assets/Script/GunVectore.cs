@@ -21,13 +21,13 @@ public class GunVectore : MonoBehaviour
   public float NextTimeToFire = 0f;
   public MeshRenderer meshRenderer;
 
-  void Start ()
+  private void Start ()
   {
     StartCoroutine(Reload());
     meshRenderer = GetComponent<MeshRenderer>();
   }
 
-  void Update() 
+  private void Update() 
   {
       if ( !meshRenderer.enabled)
       {
@@ -50,7 +50,7 @@ public class GunVectore : MonoBehaviour
               }
   }
 
-  IEnumerator Reload ()
+  private IEnumerator Reload ()
   { 
       if ( BagAmmo > 0)
       {
@@ -64,7 +64,7 @@ public class GunVectore : MonoBehaviour
       }
   }
         
-  void Shoot ()
+  private void Shoot ()
   {
         currentAmmo --;
         ShootEffect.Play();

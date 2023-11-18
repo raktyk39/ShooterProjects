@@ -6,8 +6,8 @@ using UnityEngine.UI;
 public class AmmoUI : MonoBehaviour
 {
     private Gun gun;
-    GunP90 gunP90;
-    GunVectore gunVectore;
+    private GunP90 gunP90;
+    private GunVectore gunVectore;
     private Waves waves_;
     public Text [] textAmmo;
 
@@ -21,12 +21,12 @@ public class AmmoUI : MonoBehaviour
         textAmmo = gameObject.GetComponentsInChildren<Text>();
     }
 
-    void Update()
+    private void Update()
     {
         GunUI();
     }
  
-    void GunUI ()
+    private void GunUI ()
     {
         textAmmo[0].text = "CurentAmmo" + gun.currentAmmo;
         textAmmo[1].text = "BagAmmo" + gun.BagAmmo;

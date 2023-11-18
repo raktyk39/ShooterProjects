@@ -12,14 +12,14 @@ public class RandomSpawnBigZombie : MonoBehaviour
 
   public Vector3 SpawnPlace;    
 
-  void Start()
+  private void Start()
   {
     YakuZombee = Resources.Load("Prefabs/BigYakuZombee") as GameObject; // Сделали путь к обьекту , перезаписываем как игровой обьект
     StartCoroutine("SpawnBigZombiesTaimer");
     waves = FindObjectOfType<Waves>();
   }
 
-  IEnumerator SpawnBigZombiesTaimer() 
+  private IEnumerator SpawnBigZombiesTaimer() 
   {
     while (true)
     { 

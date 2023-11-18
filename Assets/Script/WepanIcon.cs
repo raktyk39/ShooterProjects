@@ -11,7 +11,7 @@ public class WepanIcon : MonoBehaviour
     public List<Image> images = new List<Image>();
     private int currentIndex = 0;
 
-    void Start()
+    private void Start()
     {
         images.Add(imageGlock);
         images.Add(imageP90);
@@ -20,7 +20,7 @@ public class WepanIcon : MonoBehaviour
         UpdateIconDisplay();
     }
 
-    void Update()
+    private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
@@ -36,7 +36,7 @@ public class WepanIcon : MonoBehaviour
         }
     }
 
-    void UpdateIconDisplay()
+    private void UpdateIconDisplay()
     {
         for (int i = 0; i < images.Count; i++)
         {

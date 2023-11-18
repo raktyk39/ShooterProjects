@@ -8,19 +8,19 @@ public class WavesUI : MonoBehaviour
     public Text textWaves; 
     public Waves waves;
 
-    void Start()
+    private void Start()
     {
         waves = FindObjectOfType<Waves>();
             
         textWaves = gameObject.GetComponentInChildren<Text>();
     }
 
-    void Update()
+    private void Update()
     {
         WavesPrintUI();
     }
     
-    void WavesPrintUI ()
+    private void WavesPrintUI ()
     {
         textWaves.text = "Waves " + waves.WavesCaunt;
     }

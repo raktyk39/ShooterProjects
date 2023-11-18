@@ -13,7 +13,7 @@ public class WepanPlace : MonoBehaviour
 
     public int WeaponBagLength;
 
-    void Start()
+    private void Start()
     {
         meshRenderer = GetComponent<MeshRenderer>();
 
@@ -30,7 +30,7 @@ public class WepanPlace : MonoBehaviour
         ChooseWeapon();
     }
 
-    void Update()
+    private void Update()
     {
         if ( Input.GetKey(KeyCode.Alpha1))
         {
@@ -49,7 +49,7 @@ public class WepanPlace : MonoBehaviour
             }
     }
 
-    void ChooseWeapon()
+    private void ChooseWeapon()
     {
         for (int i = 0; i < WeaponBagLength; i++)
         {

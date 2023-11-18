@@ -5,16 +5,16 @@ using UnityEngine.UI;
 
 public class KillUI : MonoBehaviour
 {
-    Waves _waves;
+    private Waves _waves;
     public Text [] textOfKills;
 
-    void Start()
+    private void Start()
     {
         _waves = FindObjectOfType<Waves>();
         textOfKills = GetComponentsInChildren<Text>();
     }
 
-    void Update()
+    private void Update()
     {
         KillsUI();
     }

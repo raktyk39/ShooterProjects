@@ -17,12 +17,12 @@ public class Waves : MonoBehaviour
   public int ZombiHealthAddingBig;
   public int DamageforPlayerAddingBig;
      
-  void Start ()
+  private void Start ()
   {
     zombmovi = FindObjectOfType<ZombeMove>();
   }
  
-  void Update()
+  private void Update()
   {
     if (ZombieKillOnWave == 13) 
     {
@@ -36,12 +36,12 @@ public class Waves : MonoBehaviour
         CountZombiesOnWave();
   }
 
-  void CountZombiesOnWave()
+  private void CountZombiesOnWave()
   {
         ZombieCount = GameObject.FindGameObjectsWithTag("Zombie");
   }
 
-  void ChangeWave ()
+  private void ChangeWave ()
   {   
         maxZombiesOnWave ++;
 

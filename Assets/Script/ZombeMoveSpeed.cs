@@ -22,7 +22,7 @@ public class ZombeMoveSpeed : MonoBehaviour
 
       private AnimatorStateInfo ZombiStateInfo;
 
-      void Start()
+      private void Start()
       {
             _waves = FindObjectOfType<Waves>();
 
@@ -41,12 +41,12 @@ public class ZombeMoveSpeed : MonoBehaviour
             ZombiHealth = ZombiHealth + _waves.ZombiHealthAdding;
       }
    
-      void Update()
+      private void Update()
       {
             ZombeController();
       }
 
-      void OnCollisionEnter(Collision other)
+      private void OnCollisionEnter(Collision other)
       {    
           if ( other.gameObject.tag == "Player")
           {
@@ -57,7 +57,7 @@ public class ZombeMoveSpeed : MonoBehaviour
 
       }
 
-      void OnCollisionExit(Collision other) 
+      private void OnCollisionExit(Collision other) 
       {
          if ( other.gameObject.tag == "Player")
          {
@@ -65,7 +65,7 @@ public class ZombeMoveSpeed : MonoBehaviour
          }
       }
 
-      void RigidbodyisKinimaticOn ()
+      private void RigidbodyisKinimaticOn ()
       {
             ZombeAnimator.enabled = true;
 
@@ -75,7 +75,7 @@ public class ZombeMoveSpeed : MonoBehaviour
             }
       }
 
-      void RigidbodyisKinimaticOff ()
+      private void RigidbodyisKinimaticOff ()
       {
             ZombeAnimator.enabled = false;
 
@@ -90,7 +90,7 @@ public class ZombeMoveSpeed : MonoBehaviour
 
 
 
-      void ZombeController ()
+      private void ZombeController ()
       {
             ZombiStateInfo = ZombeAnimator.GetCurrentAnimatorStateInfo(0);
 

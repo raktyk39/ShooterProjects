@@ -39,7 +39,7 @@ public class SaveOfGame : MonoBehaviour
 
   public float valuiu ;  
 
-  void Start()
+  private void Start()
   {
     if ( SceneManager.GetActiveScene().name  == "Parking" && PlayerPrefs.GetInt("beSave") == 1 ) 
     {

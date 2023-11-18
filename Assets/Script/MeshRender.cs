@@ -6,12 +6,12 @@ public class MeshRender : MonoBehaviour
 {
     public MeshRenderer meshRenderer;
 
-    void Start()
+    private void Start()
     {
         meshRenderer = GetComponent<MeshRenderer>();
     }
 
-    void CheckMeshRenderer()
+    private void CheckMeshRenderer()
     {
         if (meshRenderer.enabled == true)
         {
@@ -19,7 +19,7 @@ public class MeshRender : MonoBehaviour
         }
     }
 
-    void Update()
+    private void Update()
     {
         CheckMeshRenderer();
     }

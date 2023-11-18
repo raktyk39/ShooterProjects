@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class TEst : MonoBehaviour
 {
-    void Update()
+    private void Update()
     {
         Debug.Log(Random.Range(0,2));
     }

@@ -6,12 +6,12 @@ public class AmmoBox : MonoBehaviour
 {
     public GameObject gun;
 
-    void Start()
+    private void Start()
     {
         gun = GameObject.FindGameObjectWithTag("Gun");
     }
 
-     void OnTriggerEnter(Collider other) 
+     private void OnTriggerEnter(Collider other) 
      {
        if ( other.gameObject.tag == "Player")
        {  

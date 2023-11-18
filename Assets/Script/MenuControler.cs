@@ -9,7 +9,7 @@ public class MenuControler : MonoBehaviour
     public Slider vilumeSlider;
     public AudioSource BG_MenuAudio;
       
-    void Start()
+    private void Start()
     {
         panelSettings = GameObject.FindGameObjectWithTag("PanelSatings");
 
@@ -19,7 +19,7 @@ public class MenuControler : MonoBehaviour
         panelSettings.SetActive(false);
     }
 
-    void Update()
+    private void Update()
     {
         BG_MenuAudio.volume = vilumeSlider.value;
     }

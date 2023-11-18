@@ -5,14 +5,14 @@ using UnityEngine.SceneManagement;
 
 public class CheckPoint2 : MonoBehaviour
 {
-   public GameObject LVL2; // Список наших чекпоинтов
+  public GameObject LVL2; // Список наших чекпоинтов
 
-  void Start()
+  private void Start()
   { 
      LVL2 = Resources.Load("Prefabs/SpawnZombe") as GameObject;
   }
 
-  void OnTriggerEnter(Collider other) 
+  private void OnTriggerEnter(Collider other) 
   {
     if ( other.gameObject == LVL2)
     {

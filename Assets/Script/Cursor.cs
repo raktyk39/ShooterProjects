@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class invert : MonoBehaviour
 {
-    bool curcorLocked = false;
+    private bool curcorLocked = false;
 
-    void Update()
+    private void Update()
     {
         CursorController();
     }

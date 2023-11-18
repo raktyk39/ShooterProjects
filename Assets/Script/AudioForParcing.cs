@@ -8,13 +8,13 @@ public class AudioForParcing : MonoBehaviour
     public Slider valiuForAudio ;
     public AudioSource fondsSong;
  
-    void Start()
+    private void Start()
     {
         valiuForAudio.value = 100;
         fondsSong = GetComponent<AudioSource>();
     }
 
-    void Update()
+    private void Update()
     {
         fondsSong.volume = valiuForAudio.value ;
     }

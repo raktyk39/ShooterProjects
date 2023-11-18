@@ -16,7 +16,7 @@ public class Target : MonoBehaviour
         }
     }
         
-    void Die ()
+    private void Die ()
     {
         gameObject.SetActive(false);
     }

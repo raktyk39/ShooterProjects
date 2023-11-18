@@ -6,12 +6,12 @@ public class AmooP90 : MonoBehaviour
 {
     public GameObject p90 ;
    
-    void Start()
+    private void Start()
     {
         p90 = GameObject.FindGameObjectWithTag("GunP90"); // Даный игрово обьект мы находим по тегу
     }
 
-    void OnTriggerEnter(Collider other) 
+    private void OnTriggerEnter(Collider other) 
     { 
         if (   other.gameObject.tag == "Player" )
         {

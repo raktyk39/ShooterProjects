@@ -5,6 +5,7 @@ using UnityEngine;
 public class ZombeMove : MonoBehaviour
 {
     public Waves _waves;
+
     private GameObject Player;
 
     public float ZombeSpeed = 0.5f;
@@ -21,7 +22,7 @@ public class ZombeMove : MonoBehaviour
 
     private AnimatorStateInfo ZombiStateInfo;
 
-      void Start()
+      private void Start()
       {
             _waves = FindObjectOfType<Waves>();
 
@@ -42,12 +43,12 @@ public class ZombeMove : MonoBehaviour
             ZombiHealth = ZombiHealth + _waves.ZombiHealthAdding;
       }
 
-      void Update()
+      private void Update()
       {
             ZombeController();
       }
 
-      void OnCollisionEnter(Collision other) 
+      private void OnCollisionEnter(Collision other) 
       {  
          if ( other.gameObject.tag == "Player")
          {
@@ -56,7 +57,7 @@ public class ZombeMove : MonoBehaviour
          }
       }
 
-      void OnCollisionExit(Collision other)  
+      private void OnCollisionExit(Collision other)  
       {
          if ( other.gameObject.tag == "Player")
          {
@@ -64,7 +65,7 @@ public class ZombeMove : MonoBehaviour
          }
       }
 
-      void RigidbodyisKinimaticOn ()
+      private void RigidbodyisKinimaticOn ()
       {
             ZombeAnimator.enabled = true;
 
@@ -74,7 +75,7 @@ public class ZombeMove : MonoBehaviour
             }
       }  
 
-      void RigidbodyisKinimaticOff ()
+      private void RigidbodyisKinimaticOff ()
       {
             ZombeAnimator.enabled = false;
 
@@ -84,7 +85,7 @@ public class ZombeMove : MonoBehaviour
             }
       }
 
-      void ZombeController ()
+      private void ZombeController ()
       {
             ZombiStateInfo = ZombeAnimator.GetCurrentAnimatorStateInfo(0);
 

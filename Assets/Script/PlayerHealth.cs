@@ -9,13 +9,13 @@ public class PlayerHealth : MonoBehaviour
     public Slider slider;
     
     public int playerHealth = 100;
-    // Start is called before the first frame update
-    void Start()
+   
+    private void Start()
     {
         slider = FindObjectOfType<Slider>();  // Обращаемся по типу
     }
 
-    void Update()
+    private void Update()
     {
         slider.value = playerHealth;  
         Death();
@@ -26,7 +26,7 @@ public class PlayerHealth : MonoBehaviour
       playerHealth = playerHealth- playerDamage;
     }
 
-    void Death () 
+    private void Death () 
     {
       if (playerHealth <=0 )
       {

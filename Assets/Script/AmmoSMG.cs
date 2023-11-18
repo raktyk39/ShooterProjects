@@ -6,12 +6,12 @@ public class AmmoSMG : MonoBehaviour
 {
   public GameObject smg;
 
-  void Start()
+  private void Start()
   {
     smg = GameObject.FindGameObjectWithTag("GunSmg");
   }
 
-  void OnTriggerEnter(Collider other) 
+  private void OnTriggerEnter(Collider other) 
   {
       if ( other.gameObject.tag == "Player" )
       {

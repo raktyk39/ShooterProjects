@@ -4,16 +4,16 @@ using UnityEngine;
 
 public class SpawnZombeeBig : MonoBehaviour
 {
-  public GameObject YakuZombee;
-  public float spawnTime;
+    public GameObject YakuZombee;
+    public float spawnTime;
 
-  void Start()
+    private void Start()
     {
         YakuZombee = Resources.Load("Prefabs/BigYakuZombee") as GameObject; // Сделали путь к обьекту , перезаписываем как игровой обьект
         StartCoroutine("WaitTimeForSpawn");
     }
 
-    IEnumerator WaitTimeForSpawn() 
+    private IEnumerator WaitTimeForSpawn() 
     {
         while (true)
         { 

@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class GameOverController : MonoBehaviour
 {
-    void Start()
+    private void Start()
     {
         Cursor.lockState = CursorLockMode.None;
     }

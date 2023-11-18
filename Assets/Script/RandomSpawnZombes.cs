@@ -26,7 +26,7 @@ public class RandomSpawnZombes : MonoBehaviour
       
   public GameObject selectedZombie;
 
-  void Start()
+  private void Start()
   {
     _waves = FindObjectOfType<Waves>();
     YakuZombeeSpeed = Resources.Load("Prefabs/YakuZombeeSpeed") as GameObject; // Сделали путь к обьекту , перезаписываем как игровой обьект
@@ -40,7 +40,7 @@ public class RandomSpawnZombes : MonoBehaviour
     StartCoroutine("WaitTimeForSpawn");
   }
 
-  IEnumerator WaitTimeForSpawn()
+  private IEnumerator WaitTimeForSpawn()
   {
     while (true)
     {

@@ -22,14 +22,14 @@ public class Gun : MonoBehaviour
   public float NextTimeToFire = 0f;
   public MeshRenderer meshRenderer;
 
-  void Start ()
+  private void Start ()
   {
     StartCoroutine(Reload());
     meshRenderer = GetComponent<MeshRenderer>();
     cam = Camera.main;
   }
 
-  void Update() 
+  private void Update() 
   {
     if ( !meshRenderer.enabled)
     {
@@ -52,7 +52,7 @@ public class Gun : MonoBehaviour
           }
   }
 
-  IEnumerator Reload ()
+  private IEnumerator Reload ()
   {    
       if ( BagAmmo > 0)
       {
@@ -67,7 +67,7 @@ public class Gun : MonoBehaviour
      }
   }
         
-  void Shoot ()
+  private void Shoot ()
   {
         currentAmmo --;
         Debug.Log("Мы стреляем") ;

@@ -7,7 +7,7 @@ public class ControllerPouse : MonoBehaviour
 {
     public GameObject intarfacePauce;
 
-    void Start()
+    private void Start()
     {
         intarfacePauce.SetActive(false);
     }

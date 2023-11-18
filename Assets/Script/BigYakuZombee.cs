@@ -14,7 +14,7 @@ public class BigYakuZombee : MonoBehaviour
    public List<Rigidbody> GetRigidbodies = new List<Rigidbody>();
    private AnimatorStateInfo ZombiStateInfo;
 
-   void Start()
+   private void Start()
    {
       _waves = FindObjectOfType<Waves>();  
      
@@ -34,12 +34,12 @@ public class BigYakuZombee : MonoBehaviour
       DamageforPlayer = DamageforPlayer + _waves.ZombiHealthAddingBig;    
    }
 
-    void Update()
+   private void Update()
    {
         ZombeController();
    }
 
-   void OnCollisionEnter(Collision other) 
+   private void OnCollisionEnter(Collision other) 
    {      
       if ( other.gameObject.tag == "Player")
       {
@@ -48,7 +48,7 @@ public class BigYakuZombee : MonoBehaviour
       }
    }
 
-   void OnCollisionExit(Collision other) 
+   private void OnCollisionExit(Collision other) 
    {       
       if ( other.gameObject.tag == "Player")
       {
@@ -56,7 +56,7 @@ public class BigYakuZombee : MonoBehaviour
       }
    }
 
-   void RigidbodyisKinimaticOn ()
+   private void RigidbodyisKinimaticOn ()
    {
       ZombeAnimator.enabled = true;
       
@@ -66,7 +66,7 @@ public class BigYakuZombee : MonoBehaviour
       }
    }
 
-   void RigidbodyisKinimaticOff ()
+   private void RigidbodyisKinimaticOff ()
    {
       ZombeAnimator.enabled = false;
 
@@ -76,7 +76,7 @@ public class BigYakuZombee : MonoBehaviour
       }
    }
 
-   void ZombeController ()
+   private void ZombeController ()
    {
       ZombiStateInfo = ZombeAnimator.GetCurrentAnimatorStateInfo(0);
 

@@ -6,7 +6,7 @@ public class MousLook : MonoBehaviour
 {
     public Vector2 turn;
 
-    public float ssensitivity = 0.5f;
+    public float sensitivity = 0.5f;
 
     public float horizontalMove;
         
@@ -26,12 +26,12 @@ public class MousLook : MonoBehaviour
 
     public Vector3 deltaMove;
 
-    void Start()
+    private void Start()
     {
-    PlayerAnimator = player.GetComponent<Animator>(); // Заприщвем курсору выходить за рамки окна игры  
+        PlayerAnimator = player.GetComponent<Animator>(); // Заприщвем курсору выходить за рамки окна игры  
     }
 
-    void Update()
+    private void Update()
     {
         turn.x += Input.GetAxis("Mouse X") * sensitivity;  //Получаем кардинаты мышки
         turn.y += Input.GetAxis("Mouse Y") * sensitivity;
@@ -50,7 +50,7 @@ public class MousLook : MonoBehaviour
         PlayerController();
     }
 
-    void PlayerController()
+    private void PlayerController()
     {
             isGraund = Physics.Raycast(player.transform.position, Vector3.down, 0.1f);  // Если что-то есть под игроком то isGraunt = true если не то  isGraunt = false
         if (verticalMove > 0)

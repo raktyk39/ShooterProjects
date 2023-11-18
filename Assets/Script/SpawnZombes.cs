@@ -14,7 +14,7 @@ public class SpawnZombes : MonoBehaviour
 
     private float  maxSpawnTime = 15f;
 
-    void Start()
+    private void Start()
     {
         _waves = FindObjectOfType<Waves>();
 
@@ -23,7 +23,7 @@ public class SpawnZombes : MonoBehaviour
         StartCoroutine("WaitTimeForSpawn");
     }
 
-    IEnumerator WaitTimeForSpawn() 
+    private IEnumerator WaitTimeForSpawn() 
     {
         while (true)
         { 

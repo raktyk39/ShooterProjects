@@ -7,7 +7,7 @@ public class MainMenuManager : MonoBehaviour
 {
    public GameObject butoncContinue;
 
-   void Start()
+   private void Start()
    {
       if ( PlayerPrefs.GetInt("beSave") == 1) 
       {
